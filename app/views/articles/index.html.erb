@@ -1,0 +1,14 @@
+<main class="articles-container">
+  <h1>List of articles</h1>
+  <% @articles.each do |article| %>
+    <article class="article-card">
+      <h1><%= article.title %></h1>
+      <p><%= article.description %></p>
+      <% if article.image_url %>
+        <img
+          src="<%= article.image_url %>"
+        />
+      <% end %>
+    </article>
+  <% end %>
+</main>
