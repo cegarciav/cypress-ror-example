@@ -1,0 +1,22 @@
+<main id="login-container">
+  <%= form_with url: "/users/check-credentials", id: 'login-form', method: :post do |form| %>
+    <div class="input-container">
+      <%= form.label :username, "Username or email" %>
+      <%= form.text_field :username, placeholder: "Username" %>
+    </div>
+    <div class="input-container">
+      <%= form.label :password, "Password" %>
+      <%= form.password_field :password, placeholder: "Password" %>
+    </div>
+    <%= form.submit "Log In" %>
+    <% if flash[:notice] %>
+      <%= content_tag :p, flash[:notice] %>
+    <% end %>
+    <p>
+      Don't have an account?
+      <a href="/signup">
+        Sign up
+      </a>
+    </p>
+  <% end %>
+</main>
