@@ -1,11 +1,11 @@
-#login-container {
+.user-form-container {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
 }
 
-#login-form {
+.user-form {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -36,19 +36,19 @@
 }
 
 @media only screen and (max-width: 400px) {
-  #login-form {
+  .user-form {
     width: 100%;
   }
 }
 
 @media only screen and (min-width: 401px) and (max-width: 600px) {
-  #login-form {
+  .user-form {
     width: 80%;
   }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 800px) {
-  #login-form {
+  .user-form {
     width: 60%;
   }
 }
