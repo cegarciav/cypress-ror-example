@@ -1,5 +1,5 @@
-<main id="login-container">
-  <%= form_with url: "/users/check-credentials", id: 'login-form', method: :post do |form| %>
+<main id="login-container" class="user-form-container">
+  <%= form_with url: "/users/check-credentials", class: 'user-form', method: :post do |form| %>
     <div class="input-container">
       <%= form.label :username, "Username or email" %>
       <%= form.text_field :username, placeholder: "Username" %>
