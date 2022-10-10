@@ -26,4 +26,10 @@ class UsersController < ApplicationController
       redirect_to '/login'
     end
   end
+
+  def login
+    if session[:username] && User.find_by(username: session[:username])
+      redirect_to '/'
+    end
+  end
 end
