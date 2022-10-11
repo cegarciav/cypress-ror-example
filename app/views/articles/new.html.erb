@@ -1,0 +1,21 @@
+<main id="new-article-container" class="user-form-container">
+  <%= form_with url: "/articles", class: 'user-form', method: :post do |form| %>
+    <div class="input-container">
+      <%= form.label :title, "Title" %>
+      <%= form.text_field :title, placeholder: "Title" %>
+    </div>
+    <div class="input-container">
+      <%= form.label :description, "Description or content" %>
+      <%= form.text_field :description, placeholder: "Description" %>
+    </div>
+    <div class="input-container">
+      <%= form.label :image_url, "Image URL (optional)" %>
+      <%= form.text_field :image_url, placeholder: "URL" %>
+    </div>
+    <%= form.submit "Create New Article!" %>
+    <% if flash[:notice] %>
+        <br>
+      <%= content_tag :p, flash[:notice] %>
+    <% end %>
+  <% end %>
+</main>
