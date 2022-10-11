@@ -33,4 +33,10 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
   end
+
+  def new
+    if !(session[:username] && User.find_by(username: session[:username]))
+      redirect_to '/'
+    end
+  end
 end
