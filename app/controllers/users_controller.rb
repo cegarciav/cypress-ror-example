@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   def check_credentials
+    if session[:username] && User.find_by(username: session[:username])
+      redirect_to '/'
+    end
+
     session_params = params.permit(
       :username,
       :password,
@@ -37,6 +41,10 @@ class UsersController < ApplicationController
       :authenticity_token,
       :commit
     )
+
+    if session[:username] && User.find_by(username: session[:username])
+      redirect_to '/'
+    end
 
     if new_user_params[:password] != new_user_params[:password2]
       flash[:notice] = 'Passwords don\'t match'
