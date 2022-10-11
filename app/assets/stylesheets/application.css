@@ -26,3 +26,34 @@ body {
 h1 {
   text-align: center;
 }
+
+#main-navbar {
+  display: flex;
+  width: 100%;
+  background-color: white;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+}
+
+#main-navbar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+#main-navbar li, #home-button {
+  min-height: 48px;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#main-navbar li:hover, a:hover {
+  background-color: #ced6fe;
+}
+
+#main-navbar a {
+  text-decoration: none;
+}

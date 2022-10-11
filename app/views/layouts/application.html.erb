@@ -11,6 +11,29 @@
   </head>
 
   <body>
+      <nav id="main-navbar">
+        <a href="/" id="home-button">Home</a>
+        <ul>
+          <% if session[:username] %>
+            <li>
+              <a href="/articles/new">
+                New Article
+              </a>
+            </li>
+          <% else %>
+            <li>
+              <a href="/login">
+                Log In
+              </a>
+            </li>
+            <li>
+              <a href="/signup">
+                Sign Up
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
     <%= yield %>
   </body>
 </html>
