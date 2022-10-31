@@ -1,4 +1,4 @@
-.PHONY: start build up down rails-console rails-install help
+.PHONY: start build db-restart up down rails-console rails-install help
 
 STAGE := test
 TEST_SCOPE := .
@@ -24,6 +24,15 @@ start:
 build:
 	$(info Make: build RoR app image)
 	$(COMPOSE_SETUP) -f $(COMPOSE_FILE) --env-file ${ENV_FILE} build;
+
+
+db-restart:
+	$(info Make: clear and seed the db)
+	@if [ $(STAGE) = test ]; then \
+		$(COMPOSE_SETUP) -f $(COMPOSE_FILE) --env-file ${ENV_FILE} run --rm web bin/rails db:seed; \
+	else \
+		echo Command not available in $(STAGE) stage; \
+	fi
 
 
 up:
@@ -52,6 +61,7 @@ help:
 	@echo 'Targets:'
 	@echo '  start                 starts service in background. Default make command.'
 	@echo '  build                 builds service in background.'
+	@echo '  db-restart            clears and seed the database. Only available in test stage'
 	@echo '  up                    starts services in foreground.'
 	@echo '  down                  downstreams the service and removes orphans.'
 	@echo '  rails-console         opens rails console.'
