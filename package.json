@@ -1,0 +1,10 @@
+{
+  "name": "cypress-ror-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+  },
+  "devDependencies": {
+    "cypress": "^10.11.0"
+  }
+}
