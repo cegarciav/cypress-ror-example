@@ -19,4 +19,29 @@ describe('Anonoymous user visiting the site', () => {
     cy.contains('h1', 'Festival de cine');
     cy.contains('p', 'Frame de mi cortometraje en el festival de Sundance');
   });
+
+  it('should be able to sign up as a user', () => {
+    cy.visit('/');
+
+    // Go to /signup view
+    cy.contains('a', 'Sign Up').click();
+    cy.url().should('include', '/signup');
+
+    // Sign up form
+    cy.contains('h1', 'Create a new account');
+    cy.get('input[id="email"]').type('elsa@arendelle.com');
+    cy.get('input[id="name"]').type('Elsa');
+    cy.get('input[id="username"]').type('elsa_arendelle');
+    cy.get('input[id="password"]').type('letitgo123');
+    cy.get('input[id="password2"]').type('letitgo123');
+
+    cy.contains('input', 'Sign Up').click();
+
+    // Redirection to homepage
+    cy.url().should(
+      'eq',
+      `${Cypress.config("baseUrl")}/`,
+    );
+    cy.contains('a', 'New Article');
+  });
 });
