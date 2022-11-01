@@ -60,6 +60,11 @@ rails-dbcreate:
 	$(COMPOSE_SETUP) -f $(COMPOSE_FILE) --env-file ${ENV_FILE} run --rm web bin/rails db:create;
 
 
+rails-dbmigrate:
+	$(info Make: migrate RoR app's db)
+	$(COMPOSE_SETUP) -f $(COMPOSE_FILE) --env-file ${ENV_FILE} run --rm web bin/rails db:migrate;
+
+
 help:
 	@echo ''
 	@echo 'Usage: make [TARGET] [EXTRA_ARGUMENTS]'
