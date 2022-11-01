@@ -55,6 +55,11 @@ rails-install:
 	$(COMPOSE_SETUP) -f $(COMPOSE_FILE) --env-file ${ENV_FILE} run --rm web bin/bundle install;
 
 
+rails-dbcreate:
+	$(info Make: create RoR app's db)
+	$(COMPOSE_SETUP) -f $(COMPOSE_FILE) --env-file ${ENV_FILE} run --rm web bin/rails db:create;
+
+
 help:
 	@echo ''
 	@echo 'Usage: make [TARGET] [EXTRA_ARGUMENTS]'
