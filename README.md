@@ -2,8 +2,6 @@
 
 ## Based on
 https://docs.docker.com/samples/rails/
-https://www.bootrails.com/blog/rails-cypress-testing/
-https://github.com/testdouble/cypress-rails
 
 
 IMPORTANT: If necessary, run `sudo chown -R $USER:$USER .` after each `docker-compose *` command to gain access to the directory
@@ -43,3 +41,9 @@ module.exports = defineConfig({
 ```
 
 You can review an example of this with actual tests in the branch `cypress-integration`
+
+
+## Further reading
+You may also want to check an alternative way to integrate Cypress and RoR by using the gem `cypress-rails`
+https://www.bootrails.com/blog/rails-cypress-testing/
+https://github.com/testdouble/cypress-rails
