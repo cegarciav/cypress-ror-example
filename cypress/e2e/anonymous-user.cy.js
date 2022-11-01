@@ -44,4 +44,26 @@ describe('Anonoymous user visiting the site', () => {
     );
     cy.contains('a', 'New Article');
   });
+
+  it('should block a user to sign up with an existing email', () => {
+    cy.visit('/');
+
+    // Go to /signup view
+    cy.contains('a', 'Sign Up').click();
+    cy.url().should('include', '/signup');
+
+    // Sign up form
+    cy.contains('h1', 'Create a new account');
+    cy.get('input[id="email"]').type('nelson.haha@gmail.com');
+    cy.get('input[id="name"]').type('Nelson Rufino');
+    cy.get('input[id="username"]').type('nelson_rufino');
+    cy.get('input[id="password"]').type('spanish-version');
+    cy.get('input[id="password2"]').type('spanish-version');
+
+    cy.contains('input', 'Sign Up').click();
+
+    // Redirection to /signup but with an error message
+    cy.url().should('include', '/signup');
+    cy.contains('p', 'Email already registered');
+  });
 });
